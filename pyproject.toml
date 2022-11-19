@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "test-task-marusich"
+version = "0.1.0"
+description = "test task"
+authors = ["dima-anatsko <anatskodr@gmail.com>"]
+readme = "README.md"
+packages = [{include = "test_task_marusich"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "^7.2.0"
+coverage = "^6.5.0"
+validators = "^0.20.0"
+aiohttp = "^3.8.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
