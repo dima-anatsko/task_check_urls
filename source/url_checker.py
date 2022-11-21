@@ -2,7 +2,7 @@ import argparse
 import asyncio
 import json
 from http import HTTPStatus
-from typing import Dict, Set, Tuple
+from typing import Dict, Optional, Sequence, Set, Tuple
 
 import aiohttp
 import validators
@@ -16,8 +16,8 @@ NOT_URL = 'Строка %s не является ссылкой.'
 NOT_AVAILABLE_METHODS = 'Ссылка %s не имеет доступных методов.'
 
 
-def parse_args() -> Set[str]:
-    """Parse list of urls from command line"""
+def parse_args(data: Optional[Sequence[str]] = None) -> Set[str]:
+    """Parse list of urls from command line."""
     description = (
             'Checks the list of passed strings and if the string is a url '
             'it gives the available methods and responses.'
@@ -26,7 +26,7 @@ def parse_args() -> Set[str]:
     parser.add_argument(
         'data', nargs='+', default=[], help='List of strings to check'
     )
-    args = parser.parse_args()
+    args = parser.parse_args(data)
 
     return set(args.data)
 
